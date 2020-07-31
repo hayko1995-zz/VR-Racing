@@ -270,6 +270,7 @@ MonoBehaviour:
   axisValue: 1
   responseSpeed: 10000
   returnToCentreSpeed: 10000
+  m_PairedWith: {fileID: 0}
 --- !u!114 &341013710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1137,6 +1138,7 @@ MonoBehaviour:
   axisValue: -1
   responseSpeed: 10000
   returnToCentreSpeed: 10000
+  m_PairedWith: {fileID: 0}
 --- !u!114 &1103209756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1293,6 +1295,7 @@ MonoBehaviour:
   axisValue: -1
   responseSpeed: 10000
   returnToCentreSpeed: 10000
+  m_PairedWith: {fileID: 0}
 --- !u!114 &1189980726
 MonoBehaviour:
   m_ObjectHideFlags: 0

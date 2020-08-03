@@ -1016,7 +1016,6 @@ GameObject:
   - component: {fileID: 1103209754}
   - component: {fileID: 1103209753}
   - component: {fileID: 1103209752}
-  - component: {fileID: 1103209755}
   - component: {fileID: 1103209756}
   m_Layer: 5
   m_Name: D
@@ -1125,18 +1124,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1103209750}
   m_CullTransparentMesh: 0
---- !u!114 &1103209755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1103209750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ab98b66288df7b4fa182075f2f12bd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1103209756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1628,9 +1615,9 @@ MonoBehaviour:
   wheelFR: {fileID: 756009753}
   wheelRL: {fileID: 732756255}
   wheelRR: {fileID: 1801252826}
-  maxTorque: 800
-  brakeTorque: 5000
-  maxWheelTurnAngle: 15
+  maxTorque: 1000
+  brakeTorque: 100
+  maxWheelTurnAngle: 30
   centerOfMass: {x: 0, y: 0, z: 0}
   RO_speed: 0
   RO_EngineTorque: 0

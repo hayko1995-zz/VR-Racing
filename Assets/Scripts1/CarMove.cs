@@ -161,8 +161,8 @@ public class CarMove : MonoBehaviour {
     RO_SteeringAngleFL = wheelFL.steerAngle;
     RO_SteeringAngleFR = wheelFR.steerAngle;
     RO_EngineTorque = torquePower;
-    VerticalIn =  Input.GetAxis ("Vertical");
-    HorizontalIn = Input.GetAxis("Horzontal");
+    // VerticalIn =  Input.GetAxis ("Vertical");
+    // HorizontalIn = Input.GetAxis("Horzontal");
 
     // SPEED
     // debug info

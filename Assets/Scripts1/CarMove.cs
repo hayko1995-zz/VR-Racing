@@ -43,6 +43,8 @@ public class CarMove : MonoBehaviour {
   public float RO_SteeringAngleFL; // DISPLAY ONLY
   public float RO_SteeringAngleFR; // DISPLAY ONLY
   public float RO_BrakeTorque; // DISPLAY ONLY
+  public float VerticalIn; // DISPLAY ONLY
+  public float HorizontalIn; // DISPLAY ONLY
 
   // PRIVATE
 
@@ -129,7 +131,8 @@ public class CarMove : MonoBehaviour {
       wheelRR.brakeTorque = brakeTorque;
     } else {
       // SPEED
-      torquePower = maxTorque * Mathf.Clamp (Input.GetAxis ("Vertical"), -1, 1);
+      // torquePower = maxTorque * Mathf.Clamp (Input.GetAxis ("Vertical"), -1, 1);
+      torquePower =  maxTorque * Mathf.Clamp (SimpleInput.GetAxis( "Vertical" ), -1, 1);
       wheelRL.brakeTorque = 0f;
       wheelRR.brakeTorque = 0f;
 
@@ -146,7 +149,10 @@ public class CarMove : MonoBehaviour {
 
     // CONTROLS - LEFT & RIGHT
     // apply steering to front wheels
-    steerAngle = maxWheelTurnAngle * Input.GetAxis ("Horizontal");
+
+    // steerAngle = maxWheelTurnAngle * Input.GetAxis ("Horizontal");
+    steerAngle = maxWheelTurnAngle * SimpleInput.GetAxis( "Horizontal");
+		// inputVertical = SimpleInput.GetAxis( verticalAxis );
     wheelFL.steerAngle = steerAngle;
     wheelFR.steerAngle = steerAngle;
 
@@ -155,6 +161,8 @@ public class CarMove : MonoBehaviour {
     RO_SteeringAngleFL = wheelFL.steerAngle;
     RO_SteeringAngleFR = wheelFR.steerAngle;
     RO_EngineTorque = torquePower;
+    VerticalIn =  Input.GetAxis ("Vertical");
+    HorizontalIn = Input.GetAxis("Horzontal");
 
     // SPEED
     // debug info

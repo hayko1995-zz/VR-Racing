@@ -1,35 +1,76 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
+// using WindowsInput.Native;
+// using WindowsInput;
+// using System;
+// using UnityEngine.EventSystems;
+
+// public class PressW : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+// {
+
+//     InputSimulator sim = new InputSimulator();
+//     private Boolean pressedW = false;
+
+//     public void OnPointerDown(PointerEventData eventData)
+//     {
+//         //throw new NotImplementedException();
+//         pressedW = true;
+//     }
+
+//     public void OnPointerUp(PointerEventData eventData)
+//     {
+//         //throw new NotImplementedException();
+//         pressedW = false;
+//     }
+
+//     // Update is called once per frame
+//     void Update()
+//     {
+//       if(pressedW == true)
+//         {
+//             sim.Keyboard.KeyPress(VirtualKeyCode.VK_W);
+//         }
+//     }
+// }
+
+
 using UnityEngine;
-using WindowsInput.Native;
-using WindowsInput;
-using System;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class PressW : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+namespace SimpleInputNamespace
 {
+	public class PressW : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+	{
+		public SimpleInput.AxisInput axis = new SimpleInput.AxisInput();
+		public float value = 1f;
 
-    InputSimulator sim = new InputSimulator();
-    private Boolean pressedW = false;
+		private void Awake()
+		{
+			Graphic graphic = GetComponent<Graphic>();
+			if( graphic != null )
+				graphic.raycastTarget = true;
+		}
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        //throw new NotImplementedException();
-        pressedW = true;
-    }
+		private void OnEnable()
+		{
+			axis.StartTracking();
+		}
 
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        //throw new NotImplementedException();
-        pressedW = false;
-    }
+		private void OnDisable()
+		{
+			axis.StopTracking();
+		}
 
-    // Update is called once per frame
-    void Update()
-    {
-      if(pressedW == true)
-        {
-            sim.Keyboard.KeyPress(VirtualKeyCode.VK_W);
-        }
-    }
+		public void OnPointerDown( PointerEventData eventData )
+		{
+			axis.value = value;
+		}
+
+		public void OnPointerUp( PointerEventData eventData )
+		{
+			axis.value = 0f;
+		}
+	}
 }
